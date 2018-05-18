@@ -16,8 +16,8 @@ if [[ "$#" -eq 1 ]]; then
     printf "$1\n2\n" | ./omnicache.sh
 elif [[ "$#" -eq 2 ]]; then
     echo "connecting to Altimeter for auto registration: $1 $2"
-    sed -i -- "s|%ALTIMETER_PW%|$2|" provisioned-config.json
-    sed -i -- "s|%ALTIMETER_URL%|$1|" provisioned-config.json
-    ./omnicache.sh provisioned-config.json
+    sed -i -- "s|%ALTIMETER_PW%|$2|" template-config.json
+    sed -i -- "s|%ALTIMETER_URL%|$1|" template-config.json
+    ./omnicache.sh template-config.json
 fi
 
