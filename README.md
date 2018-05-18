@@ -14,5 +14,5 @@ Steps to build and test:
     
 5) Run the docker image:
 
-    $ docker run -d -ti -p 10000:10000 -p 10080:10080 omnicache:latest  "<ALTIMETER_URL>"  ["<ALTIMETER_PW>"]
+    $ docker run -d -ti -P -p 10000:10000 -p 10080:10080 omnicache:latest  "<ALTIMETER_URL>"  ["<ALTIMETER_PW>"]
     
