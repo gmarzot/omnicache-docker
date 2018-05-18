@@ -1,0 +1,6 @@
+{
+   "provisioningClient": {
+       "provisioningCredentials":"%ALTIMETER_PW%",
+       "provisioningServers": ["%ALTIMETER_URL%"]
+   }
+}
