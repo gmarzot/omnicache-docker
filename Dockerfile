@@ -1,5 +1,5 @@
 # Start with Oracle Linux
-FROM oraclelinux:7-slim
+FROM centos
 
 # Parameters
 ENV JAVA_PKG=lib/serverjre-9.0.4_linux-x64_bin.tar.gz \
@@ -17,9 +17,8 @@ RUN export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
 
 # Copy Library Files
 ADD $RAMP_OC_PKG /
-# COPY template-config.json /
-# COPY docker-entry.sh /
+ADD docker-entry.sh /
+ADD config.json /
 
 # Start Container
-# CMD ["./docker-entry.sh"]
-CMD ["./omnicache.sh"]
+CMD ./docker-entry.sh ${ALTIMETER_URL} ${ALTIMETER_PW}
