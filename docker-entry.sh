@@ -18,7 +18,7 @@ if [[ "$#" -eq 2 ]]; then
  echo "INFO: using pre-provisioned credentials"
  sed -i -- "s|%ALTIMETER_PW%|$2|" template-config.json
 else
- echo "INFO: unsing manual provisioning
+ echo "INFO: unsing manual provisioning"
  sed -i -- "s|.*%ALTIMETER_PW%.*|d" template-config.json
 fi
 
