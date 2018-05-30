@@ -11,12 +11,16 @@ if [[ "$#" -gt 2 ]]; then
 fi
 
 cd /
-if [[ "$#" -eq 1 ]]; then
-    echo "connecting to Altimeter for manual registration: $1"
-    printf "$1\n2\n" | ./omnicache.sh
-elif [[ "$#" -eq 2 ]]; then
-    echo "connecting to Altimeter for auto registration: $1 $2"
-    sed -i -- "s|%ALTIMETER_PW%|$2|" config.json
-    sed -i -- "s|%ALTIMETER_URL%|$1|" config.json
-    ./omnicache.sh config.json
+
+sed -i -- "s|%ALTIMETER_URL%|$1|" template-config.json
+
+if [[ "$#" -eq 2 ]]; then
+ echo "INFO: using pre-provisioned credentials"
+ sed -i -- "s|%ALTIMETER_PW%|$2|" template-config.json
+else
+ echo "INFO: unsing manual provisioning
+ sed -i -- "s|.*%ALTIMETER_PW%.*|d" template-config.json
 fi
+
+./omnicache.sh template-config.json
+
