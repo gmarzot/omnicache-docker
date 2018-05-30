@@ -18,7 +18,7 @@ RUN export JAVA_DIR=$(ls -1 -d /usr/java/*) && \
 # Copy Library Files
 ADD $RAMP_OC_PKG /
 ADD docker-entry.sh /
-ADD config.json /
+ADD template-config.json /
 
 # Start Container
 CMD ./docker-entry.sh ${ALTIMETER_URL} ${ALTIMETER_PW}
