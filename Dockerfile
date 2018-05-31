@@ -1,4 +1,4 @@
-# Start with Oracle Linux
+# Start with Centos
 FROM centos
 
 # Parameters
