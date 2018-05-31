@@ -14,7 +14,7 @@ Steps to build and test:
     
 5) Run the docker image:
 
-    $ docker run -d -ti -P -p 10000:10000 -p 10080:10080 omnicache:latest  "<ALTIMETER_URL>"  ["<ALTIMETER_PW>"]
+    $ docker run -d -ti -P -p 10000:10000 -p 10080:10080 omnicache:latest --name "OC_DOCKER_TEST" -e 'ALTIMETER_URL=http://192.168.1.10:80' -e 'ALTIMETER_PW=docker123!'
     
 NOTE: the ALTIMETER_URL (e.g., http://192.168.1.10:80) (required parameter) identifies the Altimeter that will manage the licensing and provisioining for the docker instance of OmniCache. The ALTIMETER_PW (optional parameter) if provided allows the OmniCache to automatically obtain a license from an appropriately provisioned Altimeter, if omitted the OmniCache license request will be placed in the provisioning approval queue and can be manually accepted from Altimeter OmniCache Provisioning screen.
     
